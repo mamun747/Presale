@@ -79,27 +79,45 @@ const TokenomicsSection = () => {
           Tokenomics
         </Typography>
         <Typography
-          variant="body1"
-          color="text.secondary"
-          sx={{ mb: 5, maxWidth: 800, mx: "auto", textAlign: "center" }}
-        >
-          During the presale, you will have the option to buy $ELO, presale will
-          take place in two steps with different price, presale supports only
-          BEP20 $BNB. All $ELO purchased can be claimed at the pre-sale page
-          after the end of the vesting period.
-        </Typography>
+  variant="body1"
+  color="text.secondary"
+  sx={{
+    mb: {
+      xs: 2,   // Margin bottom on extra small screens (mobile)
+      sm: 3,   // Margin bottom on small screens (tablets)
+      md: 5,   // Margin bottom on medium screens (small laptops)
+      lg: 6,   // Margin bottom on large screens (desktops)
+    },
+    maxWidth: 800,
+    mx: "auto",
+    textAlign: "center",
+  }}
+>
+  During the presale, you will have the option to buy $ELO, presale will
+  take place in two steps with different price, presale supports only
+  BEP20 $BNB. All $ELO purchased can be claimed at the pre-sale page
+  after the end of the vesting period.
+</Typography>
+
         <Typography
-          variant="h3"
-          component="div"
-          color="text.primary"
-          sx={{
-            fontWeight: 700,
-            textAlign: "center",
-            color: "primary.main",
-          }}
-        >
-          1B - 1,000,000,000
-        </Typography>
+  variant="h3"
+  component="div"
+  color="text.primary"
+  sx={{
+    fontWeight: 700,
+    color: "primary.main",
+    textAlign: "center",
+    fontSize: {
+      xs: "1.8rem",
+      sm: "2.5rem",
+      md: "3.5rem",
+      lg: "4rem",
+    },
+  }}
+>
+  1B - 1,000,000,000
+</Typography>
+
         <Typography
           variant="h6"
           component="div"
@@ -126,33 +144,41 @@ const TokenomicsSection = () => {
               Tokenomic Statistics
             </Typography>
             {statistics.map((item, i) => (
-              <Grid container key={i} sx={{ mt: 2 }}>
-                <Grid item xs={12} md={4}>
-                  <Typography
-                    variant="h6"
-                    component="span"
-                    color="text.secondary"
-                  >
-                    {item.label}
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} md={8}>
-                  <Stack direction="row" spacing={2} alignItems="center">
-                    <Box sx={{ width: "10%" }}>
-                      <Typography variant="h6" component="span" sx={{ mb: 0 }}>
-                        {item.value}%
-                      </Typography>
-                    </Box>
-                    <Box sx={{ width: "90%" }}>
-                      <BorderLinearProgress
-                        variant="determinate"
-                        value={item.value}
-                      />
-                    </Box>
-                  </Stack>
-                </Grid>
-              </Grid>
-            ))}
+  <Grid container key={i} sx={{ mt: 2 }}>
+    <Grid item xs={12} md={4}>
+      <Typography
+        variant="h6"
+        component="span"
+        color="text.secondary"
+        sx={{
+          textAlign: { xs: "center", md: "left" }, // Center text on small screens, left-align on larger screens
+        }}
+      >
+        {item.label}
+      </Typography>
+    </Grid>
+    <Grid item xs={12} md={8}>
+      <Stack direction="row" spacing={2} alignItems="center">
+        <Box sx={{ width: "10%" }}>
+          <Typography variant="h6" component="span" sx={{ mb: 0 }}>
+            {item.value}%
+          </Typography>
+        </Box>
+        <Box sx={{ width: "90%" }}>
+          <BorderLinearProgress
+            variant="determinate"
+            value={item.value}
+            sx={{
+              height: 8, // Adjust height of the progress bar if needed
+              borderRadius: 4, // Optional for rounded corners
+            }}
+          />
+        </Box>
+      </Stack>
+    </Grid>
+  </Grid>
+))}
+
           </CardContent>
         </Card>
       </Container>

@@ -14,7 +14,14 @@ const partners = [
 
 const PartnersSection = () => {
   return (
-    <Container sx={{ pb: 5, mb: 5 }} className="fadeInUp">
+    <Container
+      sx={{
+        pb: { xs: 3, sm: 4, md: 5 },
+        mb: { xs: 3, sm: 4, md: 5 },
+        px: { xs: 2, sm: 3, md: 5 }, // Add horizontal padding for smaller screens
+      }}
+      className="fadeInUp"
+    >
       <Grid
         container
         rowSpacing={4}
@@ -23,17 +30,37 @@ const PartnersSection = () => {
         justifyContent="center"
       >
         {partners.map((partner, i) => (
-          <Grid item xs={6} sm={4} md={2} key={i} sx={{ textAlign: "center" }}>
+          <Grid
+            item
+            xs={6}
+            sm={4}
+            md={2}
+            key={i}
+            sx={{
+              textAlign: "center",
+              display: "flex",
+              justifyContent: "center", // Center the content for all screen sizes
+            }}
+          >
             <a
               href={partner.href}
               target="_blank"
               rel="noreferrer"
-              style={{ filter: "grayscale(100%)" }}
+              style={{
+                filter: "grayscale(100%)",
+                display: "block",
+                maxWidth: "100%", // Ensure the link doesn't exceed the container's width
+              }}
             >
               <img
                 src={partner.src}
                 alt={partner.label}
-                width={partner.width || 160}
+                style={{
+                  width: "100%", // Make the image responsive to container size
+                  maxWidth: partner.width || 160, // Set a max width based on the partner object or fallback
+                  objectFit: "contain", // Make sure the image is fully contained inside the container
+                  height: "auto", // Maintain aspect ratio
+                }}
               />
             </a>
           </Grid>

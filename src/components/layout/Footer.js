@@ -49,14 +49,14 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <Container sx={{ mt: 5 }}>
+    <Container sx={{ mt: {lg: 5} }}>
       <Typography sx={{ color: "text.secondary", textAlign: "center" }}>
         Audited by
       </Typography>
       <Stack
         direction="row"
         spacing={2}
-        mt={2}
+        // mt={2}
         alignItems="center"
         justifyContent="center"
       >
@@ -77,7 +77,7 @@ const Footer = () => {
         spacing={2}
         alignItems="center"
         justifyContent="center"
-        my={2}
+        sx={{my: {md: 2, xs: 1}}}
       >
         {socialLinks.map((link) => (
           <Grid

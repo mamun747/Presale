@@ -22,7 +22,7 @@ const HeroSection = () => {
           <Typography
             color="primary.main"
             variant="h2"
-            sx={{ fontWeight: "bold", mb: 3 }}
+            sx={{ fontWeight: "bold", mb: 3, }}
             component="div"
           >
             Effortless Order Foods
@@ -65,7 +65,7 @@ const HeroSection = () => {
             </Button>
           </Stack>
         </Box>
-        <Box sx={{ display: { xs: "none", md: "block" } }}>
+        <Box sx={{ display: { xs: "none", lg: "block" } }}>
           {/* <img 
             src={logoArt}
             alt="ELO Logo Alt" 
